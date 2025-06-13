@@ -35,6 +35,14 @@ const penSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, {
+    toJSON: {
+        transform: (doc, ret) => {
+            ret.id = ret._id.toString();
+            delete ret._id;
+            delete ret.__v;
+        }
+    }
 });
 
 module.exports = mongoose.model('Pen', penSchema); 
