@@ -11,3 +11,9 @@ npm install
 ```bash
 npm run dev
 ```
+
+mongodb启动
+
+```
+& 'C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe' --dbpath="C:\data\db"
+```
