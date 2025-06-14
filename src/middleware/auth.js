@@ -10,8 +10,16 @@ module.exports = function (req, res, next) {
     }
 
     try {
+        const cleanToken = token.replace('Bearer ', '');
+
+        // 检查token是否在黑名单中
+        const { blacklistedTokens } = require('../routes/users');
+        if (blacklistedTokens && blacklistedTokens.has(cleanToken)) {
+            return res.status(401).json({ message: 'Token 已失效，请重新登录' });
+        }
+
         // 验证 token
-        const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET);
+        const decoded = jwt.verify(cleanToken, process.env.JWT_SECRET || 'your-secret-key');
 
         // 将用户添加到请求中
         req.user = decoded;
