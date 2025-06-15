@@ -14,6 +14,11 @@ const penSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
+    cssLanguage: {
+        type: String,
+        enum: ['css', 'scss', 'less'],
+        default: 'css'
+    },
     js: {
         type: String,
         default: ''
