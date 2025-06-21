@@ -18,6 +18,16 @@ const penSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
+    cssLanguage: {
+        type: String,
+        enum: ['css', 'scss', 'less'],
+        default: 'css'
+    },
+    jsLanguage: {
+        type: String,
+        enum: ['js', 'react', 'vue', 'ts'],
+        default: 'js'
+    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
