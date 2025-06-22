@@ -69,6 +69,8 @@ router.post('/', auth, async (req, res) => {
         html: req.body.html,
         css: req.body.css,
         js: req.body.js,
+        cssLanguage: req.body.cssLanguage,
+        jsLanguage: req.body.jsLanguage,
         userId: req.user.id, // 从认证后的用户中获取 userId
         isPublic: req.body.isPublic
     });
