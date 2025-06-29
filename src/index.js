@@ -9,7 +9,7 @@ const app = express();
 
 // 中间件
 app.use(cors({
-    origin: 'http://localhost:8888',
+    origin: ['http://localhost:8888', 'http://localhost:3001'],
     credentials: true
 }));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 // 数据库连接
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/codepen';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://2967639290:wx126324@cluster0.ktitgo0.mongodb.net/';
 console.log('Connecting to MongoDB:', MONGODB_URI);
 
 // 测试MongoDB连接

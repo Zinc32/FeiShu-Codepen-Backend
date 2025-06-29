@@ -28,6 +28,14 @@ const penSchema = new mongoose.Schema({
         enum: ['js', 'react', 'vue', 'ts'],
         default: 'js'
     },
+    importedCssPenIds: {
+        type: [String],
+        default: []
+    },
+    importedJsPenIds: {
+        type: [String],
+        default: []
+    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
